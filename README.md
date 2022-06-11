@@ -189,6 +189,31 @@ In order to use Terraform and `cert-manager` with the Cloudflare DNS challenge y
     task configure
     ```
 
+### ☁️ Build Ubuntu cloud-init VMs for K8S nodes with Terraform
+📍 Review the Terraform scripts under `./provision/terraform/proxmox/` and make sure you understand what it's doing (no really review it).
+
+📍 To use this task a existing Proxmox node is already configured. This will be used by Terraform.
+
+📍 To use this task a existing Ubuntu Cloud-Init based VM template already needs to be created. This will be used by Terrafrom.
+
+1. Pull in the Terraform deps
+
+    ```sh
+    task proxmox-terraform:init
+    ```
+
+2. Review the changes Terraform will make to your Proxmox cluster
+
+    ```sh
+    task proxmox-terraform:plan
+    ```
+
+3. Have Terraform apply your Cloudflare settings
+
+    ```sh
+    task proxmox-terraform:apply
+    ```
+
 ### ⚡ Preparing Ubuntu with Ansible
 
 📍 Here we will be running a Ansible Playbook to prepare Ubuntu for running a Kubernetes cluster.
@@ -271,19 +296,19 @@ If your domain already has existing DNS records **be sure to export those DNS se
 1. Pull in the Terraform deps
 
     ```sh
-    task terraform:init
+    task cloudflare-terraform:init
     ```
 
 2. Review the changes Terraform will make to your Cloudflare domain
 
     ```sh
-    task terraform:plan
+    task cloudflare-terraform:plan
     ```
 
 3. Have Terraform apply your Cloudflare settings
 
     ```sh
-    task terraform:apply
+    task cloudflare-terraform:apply
     ```
 
 If Terraform was ran successfully you can log into Cloudflare and validate the DNS records are present.

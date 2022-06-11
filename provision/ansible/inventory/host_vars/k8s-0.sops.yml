@@ -1,0 +1,14 @@
+kind: Secret
+ansible_user: null
+ansible_become_pass: null
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age: []
+    lastmodified: "2022-06-11T04:53:52Z"
+    mac: ENC[AES256_GCM,data:GA/M/Bj3nKLWnhpLVU0d/ON4DevQSjGwPc9MgnnF0BL6b8q0uNws9sKwjkmMAVZP2nO/+5SpBDrOUgt0Dz35p6qotQpK98YtcU8FGOThJKGfGzUEjbVQXAXLeFlA0E3MAv6vPWYemIFiXQp0wI+5OBIwBcjms9nBvjYgwRHP3MQ=,iv:1v4iQU7HNLWo5nNBksJJoy85YQmtihzSoxHZlPgk4jU=,tag:xzUwPQRht2SIZhgERMASkg==,type:str]
+    pgp: []
+    unencrypted_regex: ^(kind)$
+    version: 3.7.3
