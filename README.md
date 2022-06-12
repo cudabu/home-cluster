@@ -199,19 +199,19 @@ In order to use Terraform and `cert-manager` with the Cloudflare DNS challenge y
 1. Pull in the Terraform deps
 
     ```sh
-    task proxmox-terraform:init
+    task proxmox-tf:init
     ```
 
 2. Review the changes Terraform will make to your Proxmox cluster
 
     ```sh
-    task proxmox-terraform:plan
+    task proxmox-tf:plan
     ```
 
 3. Have Terraform apply your Cloudflare settings
 
     ```sh
-    task proxmox-terraform:apply
+    task proxmox-tf:apply
     ```
 
 ### ⚡ Preparing Ubuntu with Ansible
@@ -296,19 +296,19 @@ If your domain already has existing DNS records **be sure to export those DNS se
 1. Pull in the Terraform deps
 
     ```sh
-    task cloudflare-terraform:init
+    task cloudflare-tf:init
     ```
 
 2. Review the changes Terraform will make to your Cloudflare domain
 
     ```sh
-    task cloudflare-terraform:plan
+    task cloudflare-tf:plan
     ```
 
 3. Have Terraform apply your Cloudflare settings
 
     ```sh
-    task cloudflare-terraform:apply
+    task cloudflare-tf:apply
     ```
 
 If Terraform was ran successfully you can log into Cloudflare and validate the DNS records are present.
