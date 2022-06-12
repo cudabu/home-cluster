@@ -19,4 +19,10 @@ tasks:
     desc: Apply the changes to Proxmox Cluster
     dir: provision/terraform/proxmox
     cmds:
-      - terraform apply {{.CLI_ARGS}}
+      - terraform apply --parallelism=1 --auto-approve {{.CLI_ARGS}}
+
+  destroy:
+    desc: Destroy the running solution
+    dir: provision/terraform/proxmox
+    cmds:
+      - terraform destroy --auto-approve {{.CLI_ARGS}}

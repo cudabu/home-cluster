@@ -27,7 +27,9 @@ variable "k8s_masters" {
             memory = "4096",
             disk_size= "30G",
             ip = "10.30.17.41",
-            gateway = "10.30.17.1"
+            gateway = "10.30.17.1",
+            name = "kube-1.cudabu.lab"
+            pool = "kube"
         },
         kube-2 = {
             target_node = "pve2",
@@ -36,7 +38,9 @@ variable "k8s_masters" {
             memory = "4096",
             disk_size= "30G",
             ip = "10.30.17.42",
-            gateway = "10.30.17.1"
+            gateway = "10.30.17.1",
+            name = "kube-2.cudabu.lab"
+            pool = "kube"
         },
         kube-3 = {
             target_node = "pve3",
@@ -46,6 +50,8 @@ variable "k8s_masters" {
             disk_size= "30G",
             ip = "10.30.17.43",
             gateway = "10.30.17.1"
+            name = "kube-3.cudabu.lab"
+            pool = "kube"
         }
     }
 }

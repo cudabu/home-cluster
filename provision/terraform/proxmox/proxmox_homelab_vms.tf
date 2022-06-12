@@ -6,8 +6,8 @@ resource "proxmox_vm_qemu" "ubunutu-k3s-controlplanes" {
     target_node = each.value.target_node
     os_type = "cloud-init"
     clone = var.k8s_source_template
-    full_clone = false # enable full clones
-    agent = 0 # update image to include agent
+    full_clone = false
+    agent = 1
     sockets = "1"
     cores = each.value.vcpu
     cpu = "host"
@@ -15,7 +15,7 @@ resource "proxmox_vm_qemu" "ubunutu-k3s-controlplanes" {
     scsihw = "virtio-scsi-pci"
     disk {
         size = each.value.disk_size
-        type = "virtio"
+        type = "scsi"
         storage = "unraid"
     }
     network {
