@@ -24,22 +24,5 @@ resource "proxmox_vm_qemu" "ubunutu-k3s-controlplanes" {
     }
 
     # cloud init section
-    ipconfig0 = "ip=${each.value.ip}/${each.value.mask},gw=${each.value.gw}"
-    nameserver = each.value.nameserver
-    ciuser = var.ssh_user
-    cipassword = var.ssh_password
-    ssh_user = var.ssh_user
-    sshkeys = var.ssh_pub_key
-
-    # Post creation actions
-    provisioner "remote-exec" {
-        inline = concat(var.extend_root_disk_script, var.firewalld_k3s_config)
-        connection {
-        type        = "ssh"
-        user        = var.ssh_user
-        password    = var.ssh_password
-        private_key = file("~/.ssh/id_rsa")
-        host        = each.value.ip
-        }
-    }
+    ipconfig0 = "ip=${each.value.ip}/${var.subnetmask},gw=${var.gateway}"
 }
