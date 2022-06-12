@@ -1,24 +1,51 @@
 variable "k8s_source_template" {
     description = "Proxmox cloud-init template"
     type = string
+    default = "ubuntu-2204-cloudinit-template"
 }
 
-variable "ssh_user" {
-    description = "Initial ssh root user"
+variable "subnetmask" {
+    description = "Subnet mask in CIDR notation"
     type = string
+    default = "24"
 }
 
-variable "ssh_password" {
-    description = "Initial ssh root password"
+variable "gateway" {
+    description = "Default route for network"
     type = string
-}
-
-variable "ssh_pub_key" {
-    description = "User pubic key"
-    type = string
+    default = "10.30.17.1"
 }
 
 variable "k8s_masters" {
-    description = "vm variables in a dictionary"
-    type = map(any)
+    description = "VM variables in a dictionary"
+    type = map
+    default = {
+        kube-1 = {
+            target_node = "pve1",
+            vmid = "441",
+            vcpu = "2",
+            memory = "4096",
+            disk_size= "30G",
+            ip = "10.30.17.41",
+            gateway = "10.30.17.1"
+        },
+        kube-2 = {
+            target_node = "pve2",
+            vmid = "442",
+            vcpu = "2",
+            memory = "4096",
+            disk_size= "30G",
+            ip = "10.30.17.42",
+            gateway = "10.30.17.1"
+        },
+        kube-3 = {
+            target_node = "pve3",
+            vmid = "443",
+            vcpu = "2",
+            memory = "4096",
+            disk_size= "30G",
+            ip = "10.30.17.43",
+            gateway = "10.30.17.1"
+        }
+    }
 }
