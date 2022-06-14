@@ -196,7 +196,11 @@ In order to use Terraform and `cert-manager` with the Cloudflare DNS challenge y
 
 📍 To use this task a existing Ubuntu Cloud-Init based VM template already needs to be created. This will be used by Terrafrom.
 
-📍 Be sure to source .config.env before starting
+📍 Be sure to source `.config.env` before starting
+
+    
+    source .config.env
+    
 
 1. Pull in the Terraform deps
 

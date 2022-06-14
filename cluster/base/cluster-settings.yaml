@@ -5,6 +5,6 @@ metadata:
   name: cluster-settings
   namespace: flux-system
 data:
-  METALLB_LB_RANGE: 
-  METALLB_K8S_GATEWAY_ADDR: 
-  METALLB_TRAEFIK_ADDR: 
+  METALLB_LB_RANGE: 10.30.17.50-10.30.17.60
+  METALLB_K8S_GATEWAY_ADDR: 10.30.17.50
+  METALLB_TRAEFIK_ADDR: 10.30.17.51

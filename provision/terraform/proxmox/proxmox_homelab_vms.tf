@@ -25,4 +25,6 @@ resource "proxmox_vm_qemu" "ubunutu-k3s-controlplanes" {
 
     # cloud init section
     ipconfig0 = "ip=${each.value.ip}/${var.subnetmask},gw=${var.gateway}"
+    ciuser = "cudabu"
+    cipassword = "cudabu"
 }
